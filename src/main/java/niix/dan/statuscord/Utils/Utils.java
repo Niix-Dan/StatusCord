@@ -1,9 +1,5 @@
 package niix.dan.statuscord.Utils;
 
-import niix.dan.statuscord.Monitor.Ping.PlayerPingProvider;
-
-import static org.bukkit.Bukkit.getServer;
-
 public class Utils {
 
     /**

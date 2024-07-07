@@ -93,9 +93,6 @@ public class Pmanager implements Placeholder {
             case "max":
                 return ""+Bukkit.getServer().getMaxPlayers();
 
-            case "ping":
-                return ""+pingStatistics.getPingAverage();
-
             default:
                 return "Invalid Placeholder";
         }

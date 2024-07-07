@@ -2,12 +2,9 @@ package niix.dan.statuscord;
 
 import niix.dan.statuscord.Command.CommandManager;
 import niix.dan.statuscord.Discord.DiscordManager;
-import niix.dan.statuscord.Monitor.Ping.PingStatistics;
-import niix.dan.statuscord.Monitor.Ping.PlayerPingProvider;
 import niix.dan.statuscord.Monitor.Tick.StcordTickStatistics;
 import niix.dan.statuscord.Monitor.Tick.TickStatistics;
 import niix.dan.statuscord.Placeholders.PapiExpansion;
-import niix.dan.statuscord.Utils.BukkitPlayerPingProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,8 +14,6 @@ import java.util.logging.Level;
 public final class StatusCord extends JavaPlugin {
     public static StatusCord plugin;
     public static TickStatistics tickStatistics;
-    public static PlayerPingProvider pingProvider;
-    public static PingStatistics pingStatistics;
     public static long serverUptime = System.currentTimeMillis();
 
     @Override
@@ -33,9 +28,6 @@ public final class StatusCord extends JavaPlugin {
         getCommand("statuscord").setExecutor(new CommandManager());
 
         tickStatistics = new StcordTickStatistics();
-        pingProvider = new BukkitPlayerPingProvider(plugin.getServer());
-
-        this.pingStatistics.start();
 
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             new PapiExpansion().register();

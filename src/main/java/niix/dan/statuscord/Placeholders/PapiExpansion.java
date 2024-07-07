@@ -102,7 +102,6 @@ public class PapiExpansion extends PlaceholderExpansion {
         registerPlaceholder(new Pmanager(this, "online"));
         registerPlaceholder(new Pmanager(this, "offline"));
         registerPlaceholder(new Pmanager(this, "max"));
-        registerPlaceholder(new Pmanager(this, "ping"));
 
     };
 }

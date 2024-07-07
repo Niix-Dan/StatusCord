@@ -40,7 +40,6 @@ public enum ConfigEnum {
     OnlinePlayers("OnlinePlayers", "onlineplayers"),
     OfflinePlayers("OfflinePlayers", "offlineplayers"),
     ServerLimit("ServerLimit", "serverlimit"),
-    ServerPing("ServerPing", "ping"),
     Uptime("Uptime", "uptime");
 
 
@@ -128,9 +127,6 @@ public enum ConfigEnum {
                 return ""+Bukkit.getOfflinePlayers().length;
             case "serverlimit":
                 return ""+Bukkit.getServer().getMaxPlayers();
-
-            case "ping":
-                return ""+pingStatistics.getPingAverage();
 
             case "uptime":
                 return "<t:"+serverUptime / 1000+":R>";

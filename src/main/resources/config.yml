@@ -6,7 +6,7 @@ Discord:
 Board:
   Timeout: 3 # 3 Recommended
   Embed:
-    Color: "FF00FF" # HEX
+    Color: "#FF00FF" # HEX (# needed)
     Description: |-
       ## **🖥️ System Information 🛡️**
       - 💻 **CpuModel**: `{CpuModel}`
@@ -32,8 +32,8 @@ Board:
         - 1m: `{ServerTps_1m}`
         - 5m: `{ServerTps_5m}`
       - ✨ **Online Players:** `{OnlinePlayers} / {ServerLimit}`
-      - 🏓 **Server Ping:** `{ServerPing} ms`
-
+#
+#
 ## Discord Placeholders
 #
 #  {CpuModel} - The CPU model.
@@ -63,10 +63,9 @@ Board:
 #  {OnlinePlayers} - Number of players currently online.
 #  {OfflinePlayers} - Number of offline players.
 #  {ServerLimit} - Maximum player limit on the server.
-#  {ServerPing} - Average server ping.
 #  {Uptime} - Server uptime.
-
-
+#
+#
 ## Papi Placeholders
 #
 #  %stcord_cpumodel%: The CPU model.
@@ -95,9 +94,9 @@ Board:
 #  %stcord_tps_15m%: Average TPS for the last 15 minutes.
 #  %stcord_online%: Number of players currently online.
 #  %stcord_max%: Maximum player limit on the server.
-#  %stcord_ping%: Average ping of the server.
-
-
-# Don't touch, unless you know what you are doing.
+#
+#
+#
+# Don't touch;
 Cache:
   MessageId:
