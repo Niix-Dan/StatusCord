@@ -1,0 +1,20 @@
+name: StatusCord
+version: ${project.version}
+description: >
+  StatusCord is a simple yet powerful tool that displays real-time information
+  about your server directly in a Discord chat. It allows you to monitor server
+  status and details without granting admin access to the server panel, enhancing
+  both security and convenience.
+
+main: niix.dan.statuscord.StatusCord
+api-version: 1.13
+load: STARTUP
+authors: [Niix-Dan]
+website: https://github.com/Niix-Dan
+softdepend: [PlaceholderAPI, ProtocolLib]
+folia-supported: false
+
+commands:
+  statuscord:
+    aliases: ["stcord"]
+    usage: /stcord [status]
