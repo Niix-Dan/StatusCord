@@ -1,0 +1,103 @@
+
+Discord:
+  BotToken: ""
+  ChannelId: ""
+
+Board:
+  Timeout: 3 # 3 Recommended
+  Embed:
+    Color: "FF00FF" # HEX
+    Description: |-
+      ## **🖥️ System Information 🛡️**
+      - 💻 **CpuModel**: `{CpuModel}`
+      - ⚙️ **Process Load**:
+        - Current: `{ProcessLoad}%`
+        - 10s: `{ProcessLoad_10s}%`
+        - 1m: `{ProcessLoad_1m}%`
+        - 15m: `{ProcessLoad_15m}%`
+      - 🌐 **System Load**:
+        - Current: `{SystemLoad}%`
+        - 10s Average: `{SystemLoad_10s}%`
+        - 1m Average: `{SystemLoad_1m}%`
+        - 15m Average: `{SystemLoad_15m}%`
+      - 💾 **Disk Usage**: `{DiskUsed} GB / {DiskTotal} GB ({DiskFree} GB free)`
+      - 🧠 **Physical Memory**: `{UsedPhysical} MB / {TotalPhysical} MB ({FreePhysical} MB free)`
+      - 🔄 **Swap Memory**: `{UsedSwap} MB / {TotalSwap} MB ({FreeSwap} MB free)`
+      - 📟 **Virtual Memory**: `{VirtualMemory} MB`
+      
+      ## **🌐 Server Information:**
+      - 🚧 **Server TPS:**
+        - 5s: `{ServerTps_5s}`
+        - 10s: `{ServerTps_10s}`
+        - 1m: `{ServerTps_1m}`
+        - 5m: `{ServerTps_5m}`
+      - ✨ **Online Players:** `{OnlinePlayers} / {ServerLimit}`
+      - 🏓 **Server Ping:** `{ServerPing} ms`
+
+## Discord Placeholders
+#
+#  {CpuModel} - The CPU model.
+#  {ProcessLoad} - Current process load.
+#  {ProcessLoad-10s} - 10 seconds process load average.
+#  {ProcessLoad-1m} - 1 minute process load average.
+#  {ProcessLoad-15m} - 15 minutes process load average.
+#  {SystemLoad} - Current system load.
+#  {SystemLoad-10s} - 10 seconds system load average.
+#  {SystemLoad-1m} - 1 minute system load average.
+#  {SystemLoad-15m} - 15 minutes system load average.
+#  {DiskUsed} - Used disk space.
+#  {DiskTotal} - Total disk space.
+#  {DiskFree} - Free disk space.
+#  {UsedPhysical} - Used physical memory.
+#  {TotalPhysical} - Total physical memory.
+#  {FreePhysical} - Free physical memory.
+#  {UsedSwap} - Used swap memory.
+#  {TotalSwap} - Total swap memory.
+#  {FreeSwap} - Free swap memory.
+#  {VirtualMemory} - Total virtual memory.
+#  {ServerTps-5s} - Average TPS for the last 5 seconds.
+#  {ServerTps-10s} - Average TPS for the last 10 seconds.
+#  {ServerTps-1m} - Average TPS for the last 1 minute.
+#  {ServerTps-5m} - Average TPS for the last 5 minutes.
+#  {ServerTps-15m} - Average TPS for the last 15 minutes.
+#  {OnlinePlayers} - Number of players currently online.
+#  {OfflinePlayers} - Number of offline players.
+#  {ServerLimit} - Maximum player limit on the server.
+#  {ServerPing} - Average server ping.
+#  {Uptime} - Server uptime.
+
+
+## Papi Placeholders
+#
+#  %stcord_cpumodel%: The CPU model.
+#  %stcord_procload%: Current process load.
+#  %stcord_procload_10s%: 10 seconds process load average.
+#  %stcord_procload_1m%: 1 minute process load average.
+#  %stcord_procload_15m%: 15 minutes process load average.
+#  %stcord_sysload%: Current system load.
+#  %stcord_sysload_10s%: 10 seconds system load average.
+#  %stcord_sysload_1m%: 1 minute system load average.
+#  %stcord_sysload_15m%: 15 minutes system load average.
+#  %stcord_disk_used%: Used disk space.
+#  %stcord_disk_total%: Total disk space.
+#  %stcord_disk_free%: Free disk space.
+#  %stcord_physical_used%: Used physical memory.
+#  %stcord_physical_total%: Total physical memory.
+#  %stcord_physical_free%: Free physical memory.
+#  %stcord_swap_used%: Used swap memory.
+#  %stcord_swap_total%: Total swap memory.
+#  %stcord_swap_free%: Free swap memory.
+#  %stcord_virtual_total%: Total virtual memory.
+#  %stcord_tps_5s%: Average TPS for the last 5 seconds.
+#  %stcord_tps_10s%: Average TPS for the last 10 seconds.
+#  %stcord_tps_1m%: Average TPS for the last 1 minute.
+#  %stcord_tps_5m%: Average TPS for the last 5 minutes.
+#  %stcord_tps_15m%: Average TPS for the last 15 minutes.
+#  %stcord_online%: Number of players currently online.
+#  %stcord_max%: Maximum player limit on the server.
+#  %stcord_ping%: Average ping of the server.
+
+
+# Don't touch, unless you know what you are doing.
+Cache:
+  MessageId:

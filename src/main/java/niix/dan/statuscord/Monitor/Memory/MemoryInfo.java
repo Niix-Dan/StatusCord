@@ -126,6 +126,8 @@ public enum MemoryInfo {
 
     public static long getTotalVirtualMemory() {
         return BEAN.getCommittedVirtualMemorySize();
+
+
     }
 
     public interface OperatingSystemMXBean {

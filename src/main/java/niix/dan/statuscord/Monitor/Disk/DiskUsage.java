@@ -24,20 +24,20 @@ public enum DiskUsage {
         FILE_STORE = fileStore;
     }
 
-    public static long getUsed() {
+    public static float getUsed() {
         if (FILE_STORE == null) {
             return 0;
         }
 
         try {
-            long total = FILE_STORE.getTotalSpace();
+            float total = FILE_STORE.getTotalSpace();
             return total - FILE_STORE.getUsableSpace();
         } catch (IOException e) {
             return 0;
         }
     }
 
-    public static long getTotal() {
+    public static float getTotal() {
         if (FILE_STORE == null) {
             return 0;
         }

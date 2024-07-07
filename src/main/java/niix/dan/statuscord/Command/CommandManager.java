@@ -1,6 +1,6 @@
 package niix.dan.statuscord.Command;
 
-import niix.dan.statuscord.Command.Cmds.Teste;
+import niix.dan.statuscord.Command.Cmds.info;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,18 +12,20 @@ public class CommandManager implements CommandExecutor {
     private List<CmdBase> cmds = new ArrayList<CmdBase>();
 
     public CommandManager() {
-        cmds.add(new Teste());
+        cmds.add(new info());
     }
 
     @Override
     public boolean onCommand(CommandSender s, Command command, String label, String[] args) {
+        boolean ok = false;
         for (CmdBase cmd : cmds) {
             if (cmd.checkCmd(args)) {
+                ok = true;
                 getCommands(args[0]).proccesCmd(s, args);
             }
         }
 
-        return false;
+        return ok;
     }
 
 
