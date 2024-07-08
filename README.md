@@ -127,7 +127,7 @@ Contributions are welcome! Please fork the repository and submit pull requests.
 If you encounter any issues or have suggestions, please report them on the [Issues](https://github.com/Niix-Dan/StatusCord/issues) page.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
