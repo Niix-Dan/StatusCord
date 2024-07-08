@@ -17,4 +17,4 @@ folia-supported: false
 commands:
   statuscord:
     aliases: ["stcord"]
-    usage: "Usage: /stcord [info]"
+    usage: "Usage: /stcord [info,reload]"
