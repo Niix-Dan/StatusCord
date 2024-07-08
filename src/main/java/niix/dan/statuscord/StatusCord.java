@@ -5,6 +5,7 @@ import niix.dan.statuscord.Discord.DiscordManager;
 import niix.dan.statuscord.Monitor.Tick.StcordTickStatistics;
 import niix.dan.statuscord.Monitor.Tick.TickStatistics;
 import niix.dan.statuscord.Placeholders.PapiExpansion;
+import niix.dan.statuscord.Utils.Metrics;
 import okhttp3.OkHttpClient;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -25,6 +26,7 @@ public final class StatusCord extends JavaPlugin {
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
         reloadConfig();
+        new Metrics(this, 22568);
 
         getCommand("statuscord").setExecutor(new CommandManager());
 
