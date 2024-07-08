@@ -1,5 +1,6 @@
 package niix.dan.statuscord.Command;
 
+import niix.dan.statuscord.StatusCord;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -18,6 +19,7 @@ public abstract class CmdBase {
     public Player player;
     public String permission = "";
     public int argLength = 0;
+    public StatusCord plugin = StatusCord.plugin;
 
     public boolean proccesCmd(CommandSender s, String[] _args) {
         sender = s;

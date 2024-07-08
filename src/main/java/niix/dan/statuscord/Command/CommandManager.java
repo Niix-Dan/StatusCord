@@ -1,6 +1,7 @@
 package niix.dan.statuscord.Command;
 
-import niix.dan.statuscord.Command.Cmds.info;
+import niix.dan.statuscord.Command.Cmds.*;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -13,6 +14,7 @@ public class CommandManager implements CommandExecutor {
 
     public CommandManager() {
         cmds.add(new info());
+        cmds.add(new reload());
     }
 
     @Override

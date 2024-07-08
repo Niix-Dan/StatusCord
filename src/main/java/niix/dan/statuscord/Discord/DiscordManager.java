@@ -25,6 +25,7 @@ public class DiscordManager extends ListenerAdapter {
     private String lastMessageId = "";
     private final FileConfiguration config;
     private final String channelId;
+    public int task = 0;
     private StatusCord plugin;
 
     public DiscordManager(StatusCord plugin, String token, String channelId) {
@@ -48,8 +49,8 @@ public class DiscordManager extends ListenerAdapter {
     public void onReady(ReadyEvent event) {
         this.channel = this.jda.getTextChannelById(this.channelId);
 
-        Bukkit.getScheduler().scheduleAsyncRepeatingTask(plugin, () -> checkAndProcessMessages(),
-                0l,config.getInt("Board.Timeout", 3) * 20L);
+        task = Bukkit.getScheduler().scheduleAsyncRepeatingTask(plugin, () -> checkAndProcessMessages(),
+                0l,config.getInt("Board.Timeout", 8) * 20L);
     }
 
     public void sendOrEditMessage(TextChannel channel) {
@@ -60,7 +61,19 @@ public class DiscordManager extends ListenerAdapter {
 
         try {
             if (!lastMessageId.isEmpty()) {
-                channel.editMessageEmbedsById(lastMessageId, embed.build()).queue();
+                //channel.editMessageEmbedsById(lastMessageId, embed.build()).queue();
+                channel.retrieveMessageById(lastMessageId).queue(
+                        message -> {
+                            channel.editMessageEmbedsById(lastMessageId, embed.build()).queue();
+                        },
+                        failure -> {
+                            channel.sendMessageEmbeds(embed.build()).queue(sentMessage -> {
+                                lastMessageId = sentMessage.getId();
+                                this.config.set("Cache.MessageId", lastMessageId);
+                                plugin.saveConfig();
+                            });
+                        }
+                );
             } else {
                 channel.sendMessageEmbeds(embed.build()).queue(sentMessage -> {
                     lastMessageId = sentMessage.getId();
@@ -68,35 +81,18 @@ public class DiscordManager extends ListenerAdapter {
                     plugin.saveConfig();
                 });
             }
-        } catch (Exception ex) {
-            //Bukkit.getLogger().log(Level.WARNING, ex.getMessage());
-        }
+        } catch (Exception ex) { }
     }
 
     public void checkAndProcessMessages() {
-        try {
-            channel.getHistory().retrievePast(1).queue(messages -> {
-                if (messages.isEmpty()) {
-                    lastMessageId = "";
-                    sendOrEditMessage(channel);
-                    return;
-                }
-
-                if (!channel.getLatestMessageId().equalsIgnoreCase(lastMessageId)) {
-                    try {
-                        channel.deleteMessageById(lastMessageId).submit();
-                    } catch (Exception ex) {
-                        //Bukkit.getLogger().log(Level.WARNING, "Failed to delete message: " + ex.getMessage());
-                    }
-                    lastMessageId = "";
-                    sendOrEditMessage(channel);
-                } else {
-                    sendOrEditMessage(channel);
-                }
-            });
-        } catch (Exception ex) {
-            Bukkit.getLogger().log(Level.WARNING, "Error processing messages: " + ex.getMessage());
+        if (!channel.getLatestMessageId().equalsIgnoreCase(lastMessageId)) {
+            try {
+                channel.deleteMessageById(lastMessageId).queue();
+            } catch (Exception ex) { }
+            lastMessageId = "";
         }
+
+        sendOrEditMessage(channel);
     }
 
     public JDA getJda() {
