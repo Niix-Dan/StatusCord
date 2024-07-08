@@ -30,11 +30,11 @@ jobs:
     - name: Upload Artifact Build
       uses: actions/upload-artifact@v4
       with:
-        name: StatusCord-Build.zip
+        name: StatusCord BuildTarget
         path: target/*
 
     - name: Upload Artifact Jar
       uses: actions/upload-artifact@v4
       with:
-        name: StatusCord.jar
+        name: StatusCord PluginJar
         path: target/StatusCord.jar
