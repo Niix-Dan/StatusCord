@@ -1,0 +1,36 @@
+name: "💡 Suggestion"
+description: "Suggest a new feature or improvement for StatusCord"
+title: "[Suggestion] - "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 💡 Suggestion
+
+        Please provide details about your suggestion or improvement.
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: "💡 Suggestion"
+      description: "Describe your suggestion or improvement."
+      placeholder: "Describe your suggestion here..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: "🎯 Benefits"
+      description: "Explain the benefits of this suggestion."
+      placeholder: "Explain the benefits here..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: "ℹ️ Additional Information"
+      description: "Any additional context or information."
+      placeholder: "Additional context here..."
