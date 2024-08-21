@@ -8,6 +8,7 @@ TpsAlerter:
   CheckRate: 5 # 5 Recommended (In seconds)
   CheckTps: 15 # Trigger alert if tps below 15
   ChannelId: "" 
+  Content: "||@everyone|| Server tps < 5"
   Embed: 
     Color: "#FF0000"
     Description: |-
