@@ -22,6 +22,7 @@ import static niix.dan.statuscord.Utils.Utils.filter;
 public class DiscordManager extends ListenerAdapter {
     private JDA jda;
     private TextChannel channel = null;
+    private TextChannel alertChannel = null;
     private String lastMessageId = "";
     private final FileConfiguration config;
     private final String channelId;
@@ -48,6 +49,7 @@ public class DiscordManager extends ListenerAdapter {
 
     @Override
     public void onReady(ReadyEvent event) {
+        if(!config.getString("TpsAlerter.ChannelId").isEmpty()) this.alertChannel = this.jda.getTextChannelById(config.getString("TpsAlerter.ChannelId");
         this.channel = this.jda.getTextChannelById(this.channelId);
 
         tpstask = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, () -> checkTps(),
@@ -88,13 +90,15 @@ public class DiscordManager extends ListenerAdapter {
     }
 
     public void checkTps() {
-        
+        String content = filter(config.getString("TpsAlerter.Content", "||@everyone||"));
+        if(tps > config.getInt("TpsAlerter.Tps", 5)) return;
         // TODO: TpsChecker
         EmbedBuilder embed = new EmbedBuilder();
         embed.setDescription(filter(config.getString("TpsAlerter.Embed.Description", "### LOW TPS\n> Invalid embed description! Please check your ` config.yml `")));
         embed.setColor(Color.decode(config.getString("TpsAlerter.Embed.Color", "#FFFFFF")));
         embed.setFooter("[" + LocalTime.now() + "]");
 
+        alertChannel.sendMessageEmbeds(embed.build()).queue();
     }
 
     public void checkAndProcessMessages() {
