@@ -50,7 +50,7 @@ public class DiscordManager extends ListenerAdapter {
 
     @Override
     public void onReady(ReadyEvent event) {
-        if(!config.getString("TpsAlerter.ChannelId").isEmpty()) this.alertChannel = this.jda.getTextChannelById(config.getString("TpsAlerter.ChannelId");
+        if(!config.getString("TpsAlerter.ChannelId").isEmpty()) this.alertChannel = this.jda.getTextChannelById(config.getString("TpsAlerter.ChannelId"));
         this.channel = this.jda.getTextChannelById(this.channelId);
 
         tpstask = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, () -> checkTps(),
