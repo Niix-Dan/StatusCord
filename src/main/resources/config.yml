@@ -3,6 +3,17 @@ Discord:
   BotToken: ""
   ChannelId: ""
 
+# Soon
+TpsAlerter:
+  CheckRate: "5s" # 5s, 10s, 1m, 5m
+  CheckTps: 15 # Trigger alert if tps below 15
+  ChannelId: "" 
+  Embed: 
+    Color: "#FF0000"
+    Description: |-
+      ##📕 LOW TPS
+      - Current Server tps: ` {ServerTps_5s} `
+
 Board:
   Timeout: 8 # 8-12 Recommended
   Embed:
