@@ -88,7 +88,13 @@ public class DiscordManager extends ListenerAdapter {
     }
 
     public void checkTps() {
+        
         // TODO: TpsChecker
+        EmbedBuilder embed = new EmbedBuilder();
+        embed.setDescription(filter(config.getString("TpsAlerter.Embed.Description", "### LOW TPS\n> Invalid embed description! Please check your ` config.yml `")));
+        embed.setColor(Color.decode(config.getString("TpsAlerter.Embed.Color", "#FFFFFF")));
+        embed.setFooter("[" + LocalTime.now() + "]");
+
     }
 
     public void checkAndProcessMessages() {
