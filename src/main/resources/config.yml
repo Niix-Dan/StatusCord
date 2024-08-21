@@ -5,7 +5,7 @@ Discord:
 
 # Soon
 TpsAlerter:
-  CheckRate: "5s" # 5s, 10s, 1m, 5m
+  CheckRate: 5 # 5 Recommended (In seconds)
   CheckTps: 15 # Trigger alert if tps below 15
   ChannelId: "" 
   Embed: 
@@ -15,7 +15,7 @@ TpsAlerter:
       - Current Server tps: ` {ServerTps_5s} `
 
 Board:
-  Timeout: 8 # 8-12 Recommended
+  Timeout: 8 # 8-12 Recommended (In seconds)
   Embed:
     Color: "#FF00FF" # HEX (# needed)
     Description: |-
