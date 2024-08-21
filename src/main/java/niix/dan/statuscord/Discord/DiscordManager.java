@@ -18,6 +18,7 @@ import java.time.LocalTime;
 import java.util.logging.Level;
 
 import static niix.dan.statuscord.Utils.Utils.filter;
+import static niix.dan.statuscord.StatusCord.*;
 
 public class DiscordManager extends ListenerAdapter {
     private JDA jda;
@@ -91,7 +92,7 @@ public class DiscordManager extends ListenerAdapter {
 
     public void checkTps() {
         String content = filter(config.getString("TpsAlerter.Content", "||@everyone||"));
-        if(tps > config.getInt("TpsAlerter.Tps", 5)) return;
+        if( > config.getInt("TpsAlerter.Tps", 5)) return;
         // TODO: TpsChecker
         EmbedBuilder embed = new EmbedBuilder();
         embed.setDescription(filter(config.getString("TpsAlerter.Embed.Description", "### LOW TPS\n> Invalid embed description! Please check your ` config.yml `")));
