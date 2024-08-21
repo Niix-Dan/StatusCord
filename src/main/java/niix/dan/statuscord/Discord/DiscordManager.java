@@ -51,7 +51,7 @@ public class DiscordManager extends ListenerAdapter {
         this.channel = this.jda.getTextChannelById(this.channelId);
 
         tpstask = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, () -> checkTps(),
-                0l, config.getInt("TpsAlerter.checkRate", 5) * 20L);
+                0l, config.getInt("TpsAlerter.CheckRate", 5) * 20L);
         task = Bukkit.getScheduler().scheduleAsyncRepeatingTask(plugin, () -> checkAndProcessMessages(),
                 0l, config.getInt("Board.Timeout", 8) * 20L);
     }
