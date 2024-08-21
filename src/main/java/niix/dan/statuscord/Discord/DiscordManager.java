@@ -26,6 +26,7 @@ public class DiscordManager extends ListenerAdapter {
     private final FileConfiguration config;
     private final String channelId;
     public int task = 0;
+    public int tpstask = 0;
     private StatusCord plugin;
 
     public DiscordManager(StatusCord plugin, String token, String channelId) {
@@ -49,8 +50,10 @@ public class DiscordManager extends ListenerAdapter {
     public void onReady(ReadyEvent event) {
         this.channel = this.jda.getTextChannelById(this.channelId);
 
+        tpstask = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, () -> checkTps(),
+                0l, config.getInt("TpsAlertet.checkRate", 5) * 20L);
         task = Bukkit.getScheduler().scheduleAsyncRepeatingTask(plugin, () -> checkAndProcessMessages(),
-                0l,config.getInt("Board.Timeout", 8) * 20L);
+                0l, config.getInt("Board.Timeout", 8) * 20L);
     }
 
     public void sendOrEditMessage(TextChannel channel) {
@@ -82,6 +85,10 @@ public class DiscordManager extends ListenerAdapter {
                 });
             }
         } catch (Exception ex) { }
+    }
+
+    public void checkTps() {
+        // TODO: TpsChecker
     }
 
     public void checkAndProcessMessages() {
