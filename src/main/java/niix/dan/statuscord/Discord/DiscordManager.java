@@ -92,7 +92,7 @@ public class DiscordManager extends ListenerAdapter {
 
     public void checkTps() {
         String content = filter(config.getString("TpsAlerter.Content", "||@everyone||"));
-        if( > config.getInt("TpsAlerter.Tps", 5)) return;
+        if(tickStatistics.tps5Sec() > config.getInt("TpsAlerter.Tps", 5)) return;
         // TODO: TpsChecker
         EmbedBuilder embed = new EmbedBuilder();
         embed.setDescription(filter(config.getString("TpsAlerter.Embed.Description", "### LOW TPS\n> Invalid embed description! Please check your ` config.yml `")));
