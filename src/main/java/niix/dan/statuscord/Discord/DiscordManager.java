@@ -99,7 +99,7 @@ public class DiscordManager extends ListenerAdapter {
         embed.setColor(Color.decode(config.getString("TpsAlerter.Embed.Color", "#FFFFFF")));
         embed.setFooter("[" + LocalTime.now() + "]");
 
-        alertChannel.sendMessageEmbeds(embed.build()).queue();
+        alertChannel.sendMessage(content).setEmbeds(embed.build()).queue();
     }
 
     public void checkAndProcessMessages() {
