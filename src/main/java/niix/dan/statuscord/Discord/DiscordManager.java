@@ -95,7 +95,7 @@ public class DiscordManager extends ListenerAdapter {
         if(tickStatistics.tps5Sec() > config.getInt("TpsAlerter.Tps", 5) || alertChannel == null) return;
         // TODO: TpsChecker
         EmbedBuilder embed = new EmbedBuilder();
-        embed.setDescription(filter(config.getString("TpsAlerter.Embed.Description", "### LOW TPS\n> Invalid embed description! Please check your ` config.yml `")));
+        embed.setDescription(filter(config.getString("TpsAlerter.Embed.Description", "> LOW TPS\n> Invalid embed description! Please check your ` config.yml `")));
         embed.setColor(Color.decode(config.getString("TpsAlerter.Embed.Color", "#FFFFFF")));
         embed.setFooter("[" + LocalTime.now() + "]");
 
